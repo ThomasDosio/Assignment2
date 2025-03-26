@@ -7,7 +7,7 @@ enum Permutation
         "O, V, S, .", true);
 
     private final String name;
-    public boolean value;
+    private boolean value;
 
     Permutation(String name, boolean value)
     {
@@ -15,17 +15,17 @@ enum Permutation
         this.value = value;
     }
 
-    public boolean getValue()
+    boolean getValue()
     {
         return value;
     }
 
-    public void setValue(boolean value)
+    void setValue(boolean value)
     {
         this.value = value;
     }
 
-    public String getName()
+    String getName()
     {
         return name;
     }
@@ -65,7 +65,7 @@ public class Design
      * @param str // the string we want to transform
      * @return // returns a list of the characters in the string
      */
-    public static ArrayList<Character> makeArrayList(String str)
+    private static ArrayList<Character> makeArrayList(String str)
     {
         char[] chars = str.toCharArray();
         ArrayList<Character> characterList = new ArrayList<>();
@@ -87,7 +87,7 @@ public class Design
      * @param position   tells us after how many characters we put the dot
      * @return the new string of characters including the dot
      */
-    public static ArrayList<Character> addDot(int index,
+    private static ArrayList<Character> addDot(int index,
                                               ArrayList<Character> characters,
                                               int position)
     {
@@ -112,7 +112,7 @@ public class Design
      * @param chars      the list of chars that we check
      * @return the four sets of conditions
      */
-    public static ArrayList<Boolean> SentenceConditions(int startIndex,
+    private static ArrayList<Boolean> SentenceConditions(int startIndex,
                                                         ArrayList<Character> chars)
     {
         boolean valid3WordSentence = (chars.size() > startIndex + 2) &&
@@ -146,7 +146,7 @@ public class Design
      * @param characters the list of characters we check
      * @return the index of the first element not in a sentence
      */
-    public static int startIndex(ArrayList<Character> characters)
+    private static int startIndex(ArrayList<Character> characters)
     {
         int index = 0;
 
@@ -160,7 +160,7 @@ public class Design
         return index;
     }
 
-    public static Character getLast(ArrayList<Character> characters)
+    private static Character getLast(ArrayList<Character> characters)
     {
         return characters.getLast();
     }
@@ -175,9 +175,8 @@ public class Design
      * already valid.
      *
      * @param possibleStrings the initial set of all possible strings
-     * @return the final set of all possible strings
      */
-    public static ArrayList<ArrayList<Character>> givePossibleStrings(
+    private static void givePossibleStrings(
             ArrayList<ArrayList<Character>> possibleStrings)
     {
         for (int k = 0; k < possibleStrings.size(); k++)
@@ -201,22 +200,19 @@ public class Design
                             addDot(startIndex, possibleString, j + 1));
                 }
             }
-
-            //possibleStrings.remove(possibleString); //issue wiht index change
         }
 
-        return possibleStrings;
     }
 
     /**
      * This method makes two arraylists, one that starts with the input
      * string and becomes a list of all the possible strings and the other
-     * that slects the ones of these that are valid strings.
+     * that selects the ones of these that are valid strings.
      *
      * @param str the input string that is made into a list of characters
      * @return the list of all valid, fully punctuated strings
      */
-    public static ArrayList<ArrayList<Character>> giveValidStrings(String str)
+    private static ArrayList<ArrayList<Character>> giveValidStrings(String str)
     {
         //
         ArrayList<ArrayList<Character>> possibleStrings = new ArrayList<>();
@@ -224,7 +220,7 @@ public class Design
         ArrayList<Character> baseString = makeArrayList(str);
         possibleStrings.add(baseString);
 
-        possibleStrings = givePossibleStrings(possibleStrings);
+        givePossibleStrings(possibleStrings);
 
         for (ArrayList<Character> possibleString : possibleStrings)
         {
@@ -243,7 +239,7 @@ public class Design
      *
      * @param element the element whose truth value remains the same
      */
-    public static void setFalseOthers(String element)
+    private static void setFalseOthers(String element)
     {
         for (Permutation permutation : Permutation.values())
         {
@@ -260,7 +256,7 @@ public class Design
      *
      * @param vsOrder the wanted order of v and s to remain the same
      */
-    public static void setFalseOtherHalf(String vsOrder)
+    private static void setFalseOtherHalf(String vsOrder)
     {
         if (vsOrder.equals("VS"))
         {
@@ -279,7 +275,7 @@ public class Design
     /**
      * This method sets all the boolean values in the given hashmap to true
      */
-    public static void setAllToTrue()
+    private static void setAllToTrue()
     {
         for (Permutation permutation : Permutation.values())
         {
@@ -294,7 +290,7 @@ public class Design
      * @param input the string that gets searched for
      *              sentences of three letters
      */
-    public static void filterByPermutation(String input)
+    private static void filterByPermutation(String input)
     {
         String[] permutations = {"O, S, V, .", "S, O, V, .", "S, V, O, .",
                 "V, O, S, .", "V, S, O, .", "O, V, S, ."};
@@ -307,7 +303,7 @@ public class Design
         }
     }
 
-    public static void prettyPrint(Permutation permutation,
+    private static void prettyPrint(Permutation permutation,
                                    ArrayList<Character> string)
     {
 
@@ -322,7 +318,7 @@ public class Design
      * The main method of this class makes a list of all potentially valid
      * strings. For each string if a sentence has three characters it
      * turns the associated boolean values of the other permutations to false,
-     * if a sentence has two characters then it turns the assiated boolean
+     * if a sentence has two characters then it turns the associated boolean
      * values
      * of the impossible half of the permutations to false. Then for each
      * true value it prints the permutation and the correctly punctuated string.
@@ -333,8 +329,6 @@ public class Design
     {
         ArrayList<ArrayList<Character>> allValidStrings = giveValidStrings(
                 args[0].toUpperCase());
-        //HashMap<String, Boolean> valuesOfPermutations =
-        // setPermutationValues();
 
         for (ArrayList<Character> characterList : allValidStrings)
         {
