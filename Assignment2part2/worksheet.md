@@ -17,7 +17,7 @@ arraylists and hashmaps. The reader should be a beginner in the Java programming
 
 TODO outline what the target audience needs to know before starting.
 
-This worksheet requires knowledge on arraylists and hashmaps. 
+This worksheet requires knowledge on arraylists.
 
 # Learning outcomes #
 
