@@ -1,0 +1,3 @@
+Type: bug
+Name: Input validation not working properly
+Description: Running Sudoku World 1.9.1, the program shows "invalid input" for pretty much anything I tried

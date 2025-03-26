@@ -1,0 +1,37 @@
+Bug Report
+===========
+
+Bug ID: #213512
+
+Bug Name: InvalidFieldImage
+Summary: Invalid field images are displayed for valid inputs
+
+Submit Date: 4 February, 2020
+Reporter: Special Empire Solutions, Inc.
+
+Platform: Desktop
+Operating System: Windows 7
+
+Description
+===========
+In sample game 3, inputting 8 for a field sets the image to a tree,
+but the input window message says it should be superwoman.
+
+
+Steps to reproduce
+------------------
+1. Start Sudoku World 1.9 with sample 3
+2. Click on the top-left sudoku field
+3. Input 8 and press OK
+
+Expected result
+---------------
+An image of superwoman should appear in the top-left sudoku field
+
+Actual result
+-------------
+An image of a tree appears instead
+
+Notes
+-----
+The program keeps running and there is no crash nor any error message

@@ -1,0 +1,19 @@
+Image sources:
+
+cow.png: http://clipartist.net/links/clipartist.net/cow_chewing_animal-1979px.png
+
+tree.png: http://images.clipartpanda.com/tree-clipart-tree_tiny_green_shaded.png
+
+house.png: http://www.clker.com/cliparts/u/o/0/I/i/T/home-sweet-home-hi.png
+
+sun.png: https://101clipart.com/wp-content/uploads/10/Cute%20Sun%20Clipart%2032.png
+
+rain.png: https://clipground.com/images/raining-clipart-pictures-17.png
+
+football.png: https://www.themill-tkat.org/wp-content/uploads/2017/10/18c4c29e386cfbcbecb158177a254daf_soccer-ball-clip-art-to-download-pdclipartcompdclipartcom-soccer-football-clipart_900-900.png
+
+keanu.png: http://clipart-library.com/clipart/66477.htm
+
+rudolph.png: http://boxtutor.com/images/free-santa-and-rudolph-clipart-14.png
+
+superwoman.png: https://i.pinimg.com/originals/95/69/08/9569081c1f1b958d2a379caf1c15fbe8.png

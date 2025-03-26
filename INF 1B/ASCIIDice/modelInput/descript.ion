@@ -1,0 +1,13 @@
+descript.ion	Matches some file names to descriptions using a tab-separated format
+input-core-1.txt	Tests only the number 1
+input-core-1To6.txt	Tests the number 1, 2, 3, 4, 5, 6
+input-core-2.txt	Tests only the number 2
+input-core-3.txt	Tests only the number 3
+input-core-4.txt	Tests only the number 4
+input-core-5.txt	Tests only the number 5
+input-core-6.txt	Tests only the number 6
+input-core-empty.txt	Contains no input
+input-defensive-empty.txt	Contains no input
+input-extra-all.txt	Tests only the input "all"
+input-extra-allStatus.txt	Runs the internal commands "all" and "status"
+input-extra-status.txt	Tests only the input "status"

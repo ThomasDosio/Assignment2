@@ -1,0 +1,9 @@
+Bug in Sudoku World 1.9
+
+Sample 2 is missing, although sample 3 works fine
+
+I get this error when trying to run the project with sample2
+
+Error:(9, 50) java: cannot find symbol
+  symbol:   variable sample2
+  location: class SampleGameData

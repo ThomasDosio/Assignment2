@@ -1,0 +1,69 @@
+For bugreport030220.txt
+    Is this report helpful?
+    Is the issue critical?
+    Can you reproduce it? If so, what causes it?
+    How did you identify the cause?
+    How can it be fixed (which files, which lines need to be changed and how)?
+
+For bugreport040220.txt
+    Is this report helpful?
+    Is the issue critical?
+    Can you reproduce it? If so, what causes it?
+    How did you identify the cause?
+    How can it be fixed (which files, which lines need to be changed and how)?
+
+For bugreport070220.txt
+    Is this report helpful?
+    Is the issue critical?
+    Can you reproduce it? If so, what causes it?
+    How did you identify the cause?
+    How can it be fixed (which files, which lines need to be changed and how)?
+
+For bugreport080220.txt
+    Is this report helpful?
+    Is the issue critical?
+    Can you reproduce it? If so, what causes it?
+    How did you identify the cause?
+    How can it be fixed (which files, which lines need to be changed and how)?
+
+For bugreport090220.txt
+    Is this report helpful?
+    Is the issue critical?
+    Can you reproduce it? If so, what causes it?
+    How did you identify the cause?
+    How can it be fixed (which files, which lines need to be changed and how)?
+
+For bugreport110220.txt
+    Is this report helpful?
+    Is the issue critical?
+    Can you reproduce it? If so, what causes it?
+    How did you identify the cause?
+    How can it be fixed (which files, which lines need to be changed and how)?
+
+For bugreport210120.txt (outdated)
+    Is this report helpful?
+    Is the issue critical?
+    Can you reproduce it? If so, what causes it?
+    How did you identify the cause?
+    How can it be fixed (which files, which lines need to be changed and how)?
+
+For bugreport220120.txt
+    Is this report helpful?
+    Is the issue critical?
+    Can you reproduce it? If so, what causes it?
+    How did you identify the cause?
+    How can it be fixed (which files, which lines need to be changed and how)?
+
+For bugreport240120.txt
+    Is this report helpful?
+    Is the issue critical?
+    Can you reproduce it? If so, what causes it?
+    How did you identify the cause?
+    How can it be fixed (which files, which lines need to be changed and how)?
+
+For bugreport290120.txt
+    Is this report helpful?
+    Is the issue critical?
+    Can you reproduce it? If so, what causes it?
+    How did you identify the cause?
+    How can it be fixed (which files, which lines need to be changed and how)?

@@ -1,0 +1,13 @@
+Type: feature request
+
+Description:
+Dear Appdroid,
+
+I absolutely love your game Sudoku World!
+It has brought me hours of joy while playing and I have even designed my own sample game grids to play with.
+
+There is one annoying thing though - I really don't like how the subgrids don't have anything around them.
+Since subgrids are supposed to not contain the same image twice, it would be really helpful if there was some sort of border around them.
+
+Thanks,
+Aurelie

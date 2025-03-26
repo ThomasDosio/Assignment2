@@ -1,0 +1,6 @@
+Game sample 5 crashes for me
+It says smth about nullptrexception or something
+Fix it pls
+
+Thank u,
+next

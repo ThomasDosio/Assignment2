@@ -1,0 +1,35 @@
+Bug Report
+==========
+
+Summary: Sudoku World crashes with ArrayIndexOutOfBoundsException
+
+Submit Date: 21/01/2020
+Reporter: Alexandra Armstrong
+
+Platform: Desktop
+Operating System: Scientific Linux 7
+
+Description
+===========
+
+Steps to reproduce
+------------------
+1. Start Sudoku World
+
+Expected result
+---------------
+Sudoku World should open
+
+Actual result
+-------------
+Sudoku World window opens and crashes shortly after
+
+Notes
+-----
+Stack trace:
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 9 out of bounds for length 9
+	at SudokuFrame.createButtonGrid(SudokuFrame.java:46)
+	at SudokuFrame.<init>(SudokuFrame.java:31)
+	at SudokuWorld.main(SudokuWorld.java:11)
+
+Process finished with exit code 1

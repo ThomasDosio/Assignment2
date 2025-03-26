@@ -1,0 +1,12 @@
+Hi Appdroid,
+
+So I actually made your Sudoku World program crash.
+I should tell you, back in my day, programs were not so easy to crash.
+They were written robustly. They were written properly.
+These days, program writers are just so lazy and don't even test their own code!
+
+Honestly, I don't even know why I bothered buying your software in the first place.
+0/10 would not recommend
+
+Cheers,
+Alistair

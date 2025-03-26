@@ -1,0 +1,1 @@
+You need to put a number from 1 to 6 after the program name

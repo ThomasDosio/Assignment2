@@ -1,0 +1,27 @@
+Bug Report
+==========
+
+Summary: Sudoku World allows multiple cows in 3x3 subgrids
+
+Submit Date: 03/02/2020
+Reporter: Hairy Spotter
+
+Platform: Desktop
+Operating System: Linux OpenSUSE Leap 15.1
+
+Description
+===========
+
+Steps to reproduce
+------------------
+1. Start Sudoku World with sample1
+2. Click on the middle field of the top-left 3x3 subgrid
+3. Type in 1 for cow and press OK
+
+Expected result
+---------------
+Sudoku World should not allow two of the same image in any 3x3 subgrid
+
+Actual result
+-------------
+The game accepts the input and displays a cow for the input

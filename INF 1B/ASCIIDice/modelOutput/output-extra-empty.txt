@@ -1,0 +1,2 @@
+This program prints the faces of a dice.
+To use it you need to provide a number 1 to 6 inclusive.

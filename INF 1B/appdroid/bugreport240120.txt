@@ -1,0 +1,3 @@
+Type: bug
+Name: It's not working
+Description: the system crashes when I use it

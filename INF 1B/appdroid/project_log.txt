@@ -1,0 +1,33 @@
+^^^ REDACTED ^^^
+----------------
+
+January 5, 2020 - Sudoku World 1.6 update
+* Replaced old project images with new cuter ones
+* Renamed FieldImageIcon class to FieldImage
+
+January 6, 2020 - Sudoku World 1.6.1 bugfix
+* Changed SudokuFrame.WINDOW_DIM from 100 to 500 to fit the display size
+
+January 19, 2020 - Sudoku World 1.7 update
+* Put field images in array in FieldImage to simplify logic
+* Updated SudokuFrame.createButtonGrid() and SudokuFieldAction.processValue() to use the FieldImage.icons array
+
+January 25, 2020 - Sudoku World 1.7.1 bugfix
+* Changed "value" to "value-1" in SudokuFrame.createButtonGrid()
+    [forgot that arrays start at 0, whoops!]
++ Fixes bug reported on 21/01/2020
++ Probably fixes bug reported on 24/01/2020 too
+
+February 2, 2020 - Sudoku World 1.8 update
+* Added try-catch block surrounding Integer.parse in SudokuFieldAction.actionPerformed() to protect against invalid input
++ Fixes bug reported on 22/01/2020
+* Updated input message in SudokuFieldAction.actionPerformed() to explain what images the numbers correspond to
+* Added setDisabledIcon() in SudokuFrame.createButtonGrid() because otherwise the images were grayed out
+
+February 7, 2020 - Sudoku World 1.9 update
+* Added more sample game data to play with (just tweak the main class to choose the sample you want from 1 to 5)
+* Added borders around subgrids in SudokuFrame.createButtonGrid()
++ Addresses feature request reported on 29/01/2020
+
+February 8, 2020 - Sudoku World 1.9.1 bugfix
+* Adjusted input validation in SudokuFieldAction.actionPerformed()
