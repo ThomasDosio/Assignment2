@@ -17,13 +17,14 @@ arraylists and hashmaps. The reader should be a beginner in the Java programming
 
 TODO outline what the target audience needs to know before starting.
 
-This worksheet requires knowledge on arraylists.
+This worksheet requires basic java knowledge such as how loops work, how to manipulate strings and how to effectively use arraylists.
 
 # Learning outcomes #
 
 TODO outline what the target audience is expected to learn.
 
-The reader will hopefully learn how to use enums to simplify a task in java.
+The reader will hopefully learn how to use enums to simplify a task in java and solidify their knowledge of arraylists and 
+how to use arraylists of arraylists effectively. 
 
 # Introduction #
 
@@ -33,8 +34,88 @@ The reader will hopefully learn how to use enums to simplify a task in java.
 
 [Short link to CodeGolf challenge](https://codegolf.stackexchange.com/q/69084 "tooltip text")
 
-TODO Copy the original text and followup questions here and format
-appropriately. 
+Background
+Your friend, a linguist, has recorded and analyzed some simple conversation snippets in various languages. Being quite absent-minded, they have forgotten which language each snippet was in. You must help them by creating a program that analyzes the sentence structures and rules out impossible cases.
+
+Input
+Your input is a non-empty string containing the characters SVO, which stand for subject, verb, and object. It represents a conversation snippet analyzed by the linguist.
+
+Output
+Your task is to break the string into sentences, and enter a period . after each sentence. A sentence contains either a verb, OR a verb and a subject, OR a verb, a subject and an object. However, you don't know which word order the original language uses; English uses subject-verb-object, but other languages, like Latin, use subject-object-verb. In fact, all six permutations exist in natural languages, so you must check each of them.
+
+Your output shall contain, in a newline-separated string, each applicable word order, a colon :, and the input string broken into sentences according to that order. If the string cannot be parsed in some word order, the corresponding line shall be omitted. The order of the lines does not matter, and it is guaranteed that at least one word order can be parsed.
+
+Example
+Consider the input
+
+VSVOSV
+In the VOS order, the snipped can be parsed as VS.VOS.V., and in the SVO order, it can be parsed as V.SVO.SV.. The order OSV also works, and the full output is
+
+VOS:VS.VOS.V.
+SVO:V.SVO.SV.
+OSV:V.SV.OSV.
+
+Rules and scoring
+You can write a full program or a function. The lowest byte count wins, and standard loopholes are disallowed. Regular expressions and all built-ins are allowed.
+
+Test cases
+Input:
+V
+Output:
+VSO:V.
+VOS:V.
+SVO:V.
+OVS:V.
+SOV:V.
+OSV:V.
+
+Input:
+SVV
+Output:
+SVO:SV.V.
+SOV:SV.V.
+OSV:SV.V.
+
+Input:
+VSVOV
+Output:
+SVO:V.SVO.V.
+
+Input:
+VSOVS
+Output:
+VSO:VSO.VS.
+OVS:VS.OVS.
+
+Input:
+SVOSV
+Output:
+SVO:SVO.SV.
+OSV:SV.OSV.
+
+Input:VSVOSV
+Output:
+VOS:VS.VOS.V.
+SVO:V.SVO.SV.
+OSV:V.SV.OSV.
+
+Input:
+VSVVSOVSV
+Output:
+VSO:VS.V.VSO.VS.V.
+OVS:VS.V.VS.OVS.V.
+SOV:V.SV.V.SOV.SV.
+
+Input:
+SVVSVSOVSVV
+Output:
+SOV:SV.V.SV.SOV.SV.V.
+
+Input:
+VSOVSVSOVSVVS
+Output:
+VSO:VSO.VS.VSO.VS.V.VS.
+OVS:VS.OVS.VS.OVS.V.VS.
 
 <STYLE>
 * { /* Don't leave any empty lines or IntelliJ might not render correctly */
