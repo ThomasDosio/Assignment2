@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 enum Permutation
 {
-    OSV("O, S, V, .", true), SOV("S, O, V, .", true), SVO("S, V, O, .",
-        true), VOS("V, O, S, .", true), VSO("V, S, O, .", true), OVS(
-        "O, V, S, .", true);
+    OSV("O, S, V, .", true), SOV("S, O, V, .", true),
+    SVO("S, V, O, .", true), VOS("V, O, S, .", true),
+    VSO("V, S, O, .", true), OVS("O, V, S, .", true);
 
     private final String name;
     private boolean value;
@@ -88,8 +88,8 @@ public class Design
      * @return the new string of characters including the dot
      */
     private static ArrayList<Character> addDot(int index,
-                                              ArrayList<Character> characters,
-                                              int position)
+                                               ArrayList<Character> characters,
+                                               int position)
     {
         ArrayList<Character> punctuatedCharacters = new ArrayList<>();
         for (Character character : characters)
@@ -113,7 +113,7 @@ public class Design
      * @return the four sets of conditions
      */
     private static ArrayList<Boolean> SentenceConditions(int startIndex,
-                                                        ArrayList<Character> chars)
+                                                         ArrayList<Character> chars)
     {
         boolean valid3WordSentence = (chars.size() > startIndex + 2) &&
                 (chars.get(startIndex) != chars.get(startIndex + 1)) &&
@@ -292,8 +292,9 @@ public class Design
      */
     private static void filterByPermutation(String input)
     {
-        String[] permutations = {"O, S, V, .", "S, O, V, .", "S, V, O, .",
-                "V, O, S, .", "V, S, O, .", "O, V, S, ."};
+        String[] permutations =
+                {"O, S, V, .", "S, O, V, .", "S, V, O, .", "V, O, S, .",
+                        "V, S, O, .", "O, V, S, ."};
         for (String permutation : permutations)
         {
             if (input.contains(permutation))
@@ -304,7 +305,7 @@ public class Design
     }
 
     private static void prettyPrint(Permutation permutation,
-                                   ArrayList<Character> string)
+                                    ArrayList<Character> string)
     {
 
         System.out.print(permutation.toString() + ":");
@@ -327,8 +328,8 @@ public class Design
      */
     public static void main(String[] args)
     {
-        ArrayList<ArrayList<Character>> allValidStrings = giveValidStrings(
-                args[0].toUpperCase());
+        ArrayList<ArrayList<Character>> allValidStrings =
+                giveValidStrings(args[0].toUpperCase());
 
         for (ArrayList<Character> characterList : allValidStrings)
         {
