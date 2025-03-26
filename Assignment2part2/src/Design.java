@@ -388,4 +388,49 @@ public class Design {
     }
 }
 
+enum Permutation
+{
 
+    // enum constants calling the enum constructors
+    OSV("O, S, V, .",true),
+    SOV("S, O, V, .", true),
+    SVO("S, V, O, .", true),
+    VOS("V, O, S, .", true),
+    VSO("V, S, O, .", true),
+    OVS ("O, V, S, .", true);
+
+    private final String name;
+    public boolean value;
+
+    // private enum constructor
+    private Permutation(String name, boolean value) {
+        this.name = name;
+        this.value = value;
+    }
+
+    public boolean getValue()
+    {
+        return value;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setValue(boolean value)
+    {
+        this.value = value;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+
+        Permutation.OVS.setValue (false);
+        for (Permutation permutation : Permutation.values())
+        {
+            System.out.println(permutation.getName());
+            System.out.println(permutation.getValue());
+        }
+    }
+}

@@ -31,7 +31,7 @@ The reader will hopefully learn how to use enums to simplify a task in java.
 
 # Original challenge question from CodeGolf #
 
-[Short link to CodeGolf challenge](short url to the CodeGolf challenge "tooltip text")
+[Short link to CodeGolf challenge](https://codegolf.stackexchange.com/q/69084 "tooltip text")
 
 TODO Copy the original text and followup questions here and format
 appropriately. 
