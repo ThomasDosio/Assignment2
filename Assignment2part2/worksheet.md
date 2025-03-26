@@ -4,11 +4,14 @@
 - Tutor: Rohit Allen
 - Date: 2025-03-26
 
-# TODO Rename this heading to identify the challenge #
+# The Absent-Minded Linguist #
 
 # Target audience # 
 
 TODO define your target audience
+
+This worksheet is aimed at someone who knows basic java. They need to know about arraylists
+and hashmaps. 
 
 # Prerequisite knowledge #
 
