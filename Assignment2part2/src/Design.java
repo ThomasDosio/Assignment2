@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 
 enum Permutation
 {
@@ -166,7 +165,7 @@ public class Design
 
     public static Character getLast(ArrayList<Character> characters)
     {
-        return characters.get(characters.size() - 1);
+        return characters.getLast();
     }
 
     /**
@@ -316,9 +315,9 @@ public class Design
     {
 
         System.out.print(permutation.toString() + ":");
-        for (int k = 0; k < string.size(); k++)
+        for (Character character : string)
         {
-            System.out.print(string.get(k));
+            System.out.print(character);
         }
     }
 
