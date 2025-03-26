@@ -41,9 +41,6 @@ enum Permutation
  */
 public class Design
 {
-
-
-
     /*
      * @author Thomas Dosio
      * @version 2024-03-12
