@@ -246,13 +246,12 @@ public class Design
      * the input string to false
      *
      * @param element the element whose truth value remains the same
-     * @return the modified hashmap
      */
     public static void setFalseOthers(String element)
     {
         for (Permutation permutation : Permutation.values())
         {
-            if (permutation.getName() != element)
+            if (!permutation.getName().equals(element))
             {
                 permutation.setValue(false);
             }
@@ -264,7 +263,6 @@ public class Design
      * false depending on the order of the V and S given as input.
      *
      * @param vsOrder the wanted order of v and s to remain the same
-     * @return the modified hashmap
      */
     public static void setFalseOtherHalf(String vsOrder)
     {
@@ -284,8 +282,6 @@ public class Design
 
     /**
      * This method sets all the boolean values in the given hashmap to true
-     *
-     * @return the modified hashmap
      */
     public static void setAllToTrue()
     {
@@ -296,40 +292,11 @@ public class Design
     }
 
     /**
-     * This method creates a boolean value that starts at true for each
-     * permutation and links this in a hashmap to a string of those
-     * characters as they would appear in an ArrayList converted to string.
-     * This makes it much easier to match the boolean to the permutation's
-     * truth value.
-     *
-     * @return the hashmap of values that start at true
-     */
-    public static HashMap<String, Boolean> setPermutationValues()
-    {
-        HashMap<String, Boolean> valuesOfPermutations = new HashMap<>();
-        boolean OVS = true;
-        valuesOfPermutations.put("O, V, S, .", OVS);
-        boolean VSO = true;
-        valuesOfPermutations.put("V, S, O, .", VSO);
-        boolean VOS = true;
-        valuesOfPermutations.put("V, O, S, .", VOS);
-        boolean SVO = true;
-        valuesOfPermutations.put("S, V, O, .", SVO);
-        boolean SOV = true;
-        valuesOfPermutations.put("S, O, V, .", SOV);
-        boolean OSV = true;
-        valuesOfPermutations.put("O, S, V, .", OSV);
-
-        return valuesOfPermutations;
-    }
-
-    /**
      * This method takes a string of characters and for each 3-letter
      * sentence in, it turns the values of the other permutations to false.
      *
      * @param input the string that gets searched for
      *              sentences of three letters
-     * @return the modified hashmap
      */
     public static void filterByPermutation(String input)
     {
