@@ -1,5 +1,37 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+
+enum Permutation
+{
+    OSV("O, S, V, .", true), SOV("S, O, V, .", true), SVO("S, V, O, .",
+        true), VOS("V, O, S, .", true), VSO("V, S, O, .", true), OVS(
+        "O, V, S, .", true);
+
+    private final String name;
+    public boolean value;
+
+    Permutation(String name, boolean value)
+    {
+        this.name = name;
+        this.value = value;
+    }
+
+    public boolean getValue()
+    {
+        return value;
+    }
+
+    public void setValue(boolean value)
+    {
+        this.value = value;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+}
+
 /**
  * @author Thomas Dosio
  * @version 2025-03-26
@@ -8,21 +40,22 @@ import java.util.HashMap;
  * <p>
  * Optionally: a bit more detail about this class.
  */
-public class Design {
+public class Design
+{
 
 
 
-/*
- * @author Thomas Dosio
- * @version 2024-03-12
- * This class takes a non-empty string of Vs, Os, and/or Ss and inserts
- * punctuation at the end of a valid sentence.
- * <p>
- * A valid sentence contains: just a verb, a subject and a verb, or a
- * subject, a verb and an object. For each of the 6 permutations of these
- * three elements this class outputs the correct punctuation if the input
- * string can be made into a list of valid sentences for that order./
- */
+    /*
+     * @author Thomas Dosio
+     * @version 2024-03-12
+     * This class takes a non-empty string of Vs, Os, and/or Ss and inserts
+     * punctuation at the end of a valid sentence.
+     * <p>
+     * A valid sentence contains: just a verb, a subject and a verb, or a
+     * subject, a verb and an object. For each of the 6 permutations of these
+     * three elements this class outputs the correct punctuation if the input
+     * string can be made into a list of valid sentences for that order./
+     */
 
     /**
      * This is the maximum number of different words our valid sentences can
@@ -131,7 +164,7 @@ public class Design {
         return index;
     }
 
-    public static Character getLast (ArrayList<Character> characters)
+    public static Character getLast(ArrayList<Character> characters)
     {
         return characters.get(characters.size() - 1);
     }
@@ -213,21 +246,17 @@ public class Design {
      * the input string to false
      *
      * @param element the element whose truth value remains the same
-     * @param values  the hashmap of the truth values linked to the strings
      * @return the modified hashmap
      */
-    public static HashMap<String, Boolean> setFalseOthers(String element,
-                                                          HashMap<String,
-                                                                  Boolean> values)
+    public static void setFalseOthers(String element)
     {
-        for (String key : values.keySet())
+        for (Permutation permutation : Permutation.values())
         {
-            if (!(key.equals(element)))
+            if (permutation.getName() != element)
             {
-                values.put(key, false);
+                permutation.setValue(false);
             }
         }
-        return values;
     }
 
     /**
@@ -235,42 +264,35 @@ public class Design {
      * false depending on the order of the V and S given as input.
      *
      * @param vsOrder the wanted order of v and s to remain the same
-     * @param values  the hashmap of truth values linked to the strings
      * @return the modified hashmap
      */
-    public static HashMap<String, Boolean> setFalseOtherHalf(String vsOrder,
-                                                             HashMap<String,
-                                                                     Boolean> values)
+    public static void setFalseOtherHalf(String vsOrder)
     {
         if (vsOrder.equals("VS"))
         {
-            values.put("S, O, V, .", false);
-            values.put("S, V, O, .", false);
-            values.put("O, S, V, .", false);
+            Permutation.OSV.setValue(false);
+            Permutation.SVO.setValue(false);
+            Permutation.SOV.setValue(false);
         }
         if (vsOrder.equals("SV"))
         {
-            values.put("V, S, O, .", false);
-            values.put("V, O, S, .", false);
-            values.put("O, V, S, .", false);
+            Permutation.OVS.setValue(false);
+            Permutation.VSO.setValue(false);
+            Permutation.VOS.setValue(false);
         }
-        return values;
     }
 
     /**
      * This method sets all the boolean values in the given hashmap to true
      *
-     * @param values the hashmap of values linked to strings
      * @return the modified hashmap
      */
-    public static HashMap<String, Boolean> setAllToTrue(
-            HashMap<String, Boolean> values)
+    public static void setAllToTrue()
     {
-        for (String key : values.keySet())
+        for (Permutation permutation : Permutation.values())
         {
-            values.put(key, true);
+            permutation.setValue(true);
         }
-        return values;
     }
 
     /**
@@ -305,16 +327,11 @@ public class Design {
      * This method takes a string of characters and for each 3-letter
      * sentence in, it turns the values of the other permutations to false.
      *
-     * @param input                the string that gets searched for
-     *                             sentences of three letters
-     * @param valuesOfPermutations the hashmap of the truth values for the
-     *                             permutations
+     * @param input the string that gets searched for
+     *              sentences of three letters
      * @return the modified hashmap
      */
-    public static HashMap<String, Boolean> filterByPermutation(String input,
-                                                               HashMap<String
-                                                                       ,
-                                                                       Boolean> valuesOfPermutations)
+    public static void filterByPermutation(String input)
     {
         String[] permutations = {"O, S, V, .", "S, O, V, .", "S, V, O, .",
                 "V, O, S, .", "V, S, O, .", "O, V, S, ."};
@@ -322,18 +339,16 @@ public class Design {
         {
             if (input.contains(permutation))
             {
-                setFalseOthers(permutation, valuesOfPermutations);
+                setFalseOthers(permutation);
             }
         }
-        return valuesOfPermutations;
     }
 
-    public static void prettyPrint (String permutation,
-                                    ArrayList<Character> string)
+    public static void prettyPrint(Permutation permutation,
+                                   ArrayList<Character> string)
     {
 
-        System.out.printf("%s%s%s:", permutation.charAt(0),
-                permutation.charAt(3), permutation.charAt(6));
+        System.out.print(permutation.toString() + ":");
         for (int k = 0; k < string.size(); k++)
         {
             System.out.print(string.get(k));
@@ -355,82 +370,33 @@ public class Design {
     {
         ArrayList<ArrayList<Character>> allValidStrings = giveValidStrings(
                 args[0].toUpperCase());
-        HashMap<String, Boolean> valuesOfPermutations = setPermutationValues();
+        //HashMap<String, Boolean> valuesOfPermutations =
+        // setPermutationValues();
 
         for (ArrayList<Character> characterList : allValidStrings)
         {
-            setAllToTrue(valuesOfPermutations);
+            setAllToTrue();
             String string = characterList.toString();
 
-            valuesOfPermutations = filterByPermutation(string,
-                    valuesOfPermutations);
+            filterByPermutation(string);
 
             if (string.contains("V, S, ."))
             {
-                valuesOfPermutations = setFalseOtherHalf("VS",
-                        valuesOfPermutations);
+                setFalseOtherHalf("VS");
             }
             if (string.contains("S, V, ."))
             {
-                valuesOfPermutations = setFalseOtherHalf("SV",
-                        valuesOfPermutations);
+                setFalseOtherHalf("SV");
             }
 
-            for (String key : valuesOfPermutations.keySet())
+            for (Permutation permutation : Permutation.values())
             {
-                if (valuesOfPermutations.get(key))
+                if (permutation.getValue())
                 {
-                    prettyPrint(key, characterList);
+                    prettyPrint(permutation, characterList);
                     System.out.println();
                 }
             }
-        }
-    }
-}
-
-enum Permutation
-{
-
-    // enum constants calling the enum constructors
-    OSV("O, S, V, .",true),
-    SOV("S, O, V, .", true),
-    SVO("S, V, O, .", true),
-    VOS("V, O, S, .", true),
-    VSO("V, S, O, .", true),
-    OVS ("O, V, S, .", true);
-
-    private final String name;
-    public boolean value;
-
-    // private enum constructor
-    private Permutation(String name, boolean value) {
-        this.name = name;
-        this.value = value;
-    }
-
-    public boolean getValue()
-    {
-        return value;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setValue(boolean value)
-    {
-        this.value = value;
-    }
-}
-
-class Main {
-    public static void main(String[] args) {
-
-        Permutation.OVS.setValue (false);
-        for (Permutation permutation : Permutation.values())
-        {
-            System.out.println(permutation.getName());
-            System.out.println(permutation.getValue());
         }
     }
 }
