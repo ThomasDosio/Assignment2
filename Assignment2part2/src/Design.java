@@ -1,5 +1,13 @@
 import java.util.ArrayList;
 
+/**
+ * Creates an enum of 6 values that correspond to the 6 ways of ordering
+ * verb, subject and object. Each of these is associated with a string which
+ * is the way the three letters (V, S and O) appear once the arraylist of
+ * characters that we will work through is converted to a string. They are
+ * also associated with a boolean value that will change to false for the
+ * strings where that permutation is invalid.
+ */
 enum Permutation
 {
     OSV("O, S, V, .", true), SOV("S, O, V, .", true),
@@ -9,22 +17,41 @@ enum Permutation
     private final String name;
     private boolean value;
 
+    /**
+     * Constructor for the permutations
+     * @param name the name of the permutation in another format
+     * @param value the truth-value of the permutation that the algorithm
+     *              will change
+     */
     Permutation(String name, boolean value)
     {
         this.name = name;
         this.value = value;
     }
 
+    /**
+     * Getter for the permutation's truth value
+     * @return the truth value as it is
+     */
     boolean getValue()
     {
         return value;
     }
 
+    /**
+     * Setter for the permutation's truth value
+     * @param value the value we want to assign to the given permutation
+     */
     void setValue(boolean value)
     {
         this.value = value;
     }
 
+    /**
+     * Getter for the permutation's name
+     * @return the name as it would appear when the arraylist is converted to
+     * a string
+     */
     String getName()
     {
         return name;
@@ -35,24 +62,18 @@ enum Permutation
  * @author Thomas Dosio
  * @version 2025-03-26
  * <p>
- * One sentence summary of this class.
+ * This class splits an ordered list of verbs, subjects and objects into a
+ * string of sentences for each valid way of ordering them.
  * <p>
- * Optionally: a bit more detail about this class.
+ * A valid sentence contains: just a verb, a subject and a verb, or a
+ * subject, a verb and an object. For each of the 6 permutations of these
+ * three elements this class outputs the correct punctuation if the input
+ * string can be made into a list of valid sentences for that order.
+ * The input is a non-empty string of Vs, Ss and/or Os that represent verb,
+ * subject and object.
  */
 public class Design
 {
-    /*
-     * @author Thomas Dosio
-     * @version 2024-03-12
-     * This class takes a non-empty string of Vs, Os, and/or Ss and inserts
-     * punctuation at the end of a valid sentence.
-     * <p>
-     * A valid sentence contains: just a verb, a subject and a verb, or a
-     * subject, a verb and an object. For each of the 6 permutations of these
-     * three elements this class outputs the correct punctuation if the input
-     * string can be made into a list of valid sentences for that order./
-     */
-
     /**
      * This is the maximum number of different words our valid sentences can
      * have.
@@ -60,10 +81,10 @@ public class Design
     private static final int MAX_NUMBER_OF_WORDS_IN_A_SENTENCE = 3;
 
     /**
-     * // puts the characters of the string into an arraylist of characters
+     * Puts the characters of the string into an arraylist of characters
      *
-     * @param str // the string we want to transform
-     * @return // returns a list of the characters in the string
+     * @param str the string we want to transform
+     * @return returns a list of the characters in the string
      */
     private static ArrayList<Character> makeArrayList(String str)
     {
@@ -79,8 +100,7 @@ public class Design
     /**
      * This method makes a deep copy of the input list of characters.
      * Then working on that copy it adds a dot ('.') after a given number of
-     * characters from an element at a given index. The new list of
-     * characters is then returned.
+     * characters from an element at a given index.
      *
      * @param index      tells us where to start counting characters
      * @param characters the list of characters that we will punctuate
@@ -102,29 +122,32 @@ public class Design
     }
 
     /**
-     * This method returns an array of 4 booleans; 3 of which represent the
+     * This method returns an arraylist of 4 booleans; 3 of which represent the
      * conditions that need to be met to build a valid sentence for each
      * possible length (1, 2, or 3). The fourth boolean is the case for if
      * none of the other three conditions are met.
      *
      * @param startIndex gives us the index from which we start checking if
-     *                   the chars form a valid sentence
-     * @param chars      the list of chars that we check
+     *                   the characters form a valid sentence
+     * @param characters      the list of characters that we check
      * @return the four sets of conditions
      */
     private static ArrayList<Boolean> SentenceConditions(int startIndex,
-                                                         ArrayList<Character> chars)
+                                                         ArrayList<Character>
+                                                                 characters)
     {
-        boolean valid3WordSentence = (chars.size() > startIndex + 2) &&
-                (chars.get(startIndex) != chars.get(startIndex + 1)) &&
-                (chars.get(startIndex + 1) != chars.get(startIndex + 2)) &&
-                (chars.get(startIndex + 2) != chars.get(startIndex));
-        boolean valid2WordSentence = (chars.size() > startIndex + 1) &&
-                ((chars.get(startIndex + 1) == 'V' &&
-                        chars.get(startIndex) == 'S') ||
-                        (chars.get(startIndex + 1) == 'S' &&
-                                chars.get(startIndex) == 'V'));
-        boolean valid1WordSentence = chars.get(startIndex) == 'V';
+        boolean valid3WordSentence = (characters.size() > startIndex + 2) &&
+                (characters.get(startIndex) != characters.get(startIndex + 1)) &&
+                (characters.get(startIndex + 1) != characters.get(startIndex + 2)) &&
+                (characters.get(startIndex + 2) != characters.get(startIndex));
+
+        boolean valid2WordSentence = (characters.size() > startIndex + 1) &&
+                ((characters.get(startIndex + 1) == 'V' &&
+                        characters.get(startIndex) == 'S') ||
+                        (characters.get(startIndex + 1) == 'S' &&
+                                characters.get(startIndex) == 'V'));
+
+        boolean valid1WordSentence = characters.get(startIndex) == 'V';
 
         boolean invalidSentence = !valid1WordSentence && !valid2WordSentence &&
                 !valid3WordSentence;
@@ -160,19 +183,12 @@ public class Design
         return index;
     }
 
-    private static Character getLast(ArrayList<Character> characters)
-    {
-        return characters.getLast();
-    }
-
     /**
      * This method checks for each string in the list of possible strings, if
      * the characters after the last dot can be made into a valid sentence.
      * For each way this can be done, it adds this new sentence to a copy of
-     * the string, and adds that to the list of possible strings. If this
-     * can't be done then it removes the string from the list of possible
-     * strings. If any input string ends with a dot it skips it as it is
-     * already valid.
+     * the string, and adds that to the list of possible strings. If any
+     * input string ends with a dot it skips it as it is already valid.
      *
      * @param possibleStrings the initial set of all possible strings
      */
@@ -187,7 +203,7 @@ public class Design
 
             int startIndex = startIndex(possibleString);
 
-            if (getLast(possibleString) == '.')
+            if (possibleString.getLast() == '.')
             {
                 continue;
             }
@@ -224,7 +240,7 @@ public class Design
 
         for (ArrayList<Character> possibleString : possibleStrings)
         {
-            if (getLast(possibleString) == '.')
+            if (possibleString.getLast() == '.')
             {
                 allValidStrings.add(possibleString);
             }
@@ -273,7 +289,8 @@ public class Design
     }
 
     /**
-     * This method sets all the boolean values in the given hashmap to true
+     * This method sets all the boolean values associated to the permutations
+     * to true
      */
     private static void setAllToTrue()
     {
@@ -287,8 +304,7 @@ public class Design
      * This method takes a string of characters and for each 3-letter
      * sentence in, it turns the values of the other permutations to false.
      *
-     * @param input the string that gets searched for
-     *              sentences of three letters
+     * @param input the string that gets searched through
      */
     private static void filterByPermutation(String input)
     {
@@ -304,6 +320,11 @@ public class Design
         }
     }
 
+    /**
+     * Prints the valid strings of sentences nicely
+     * @param permutation the permutation that is valid
+     * @param string the punctuated string for this permutation
+     */
     private static void prettyPrint(Permutation permutation,
                                     ArrayList<Character> string)
     {
@@ -320,8 +341,7 @@ public class Design
      * strings. For each string if a sentence has three characters it
      * turns the associated boolean values of the other permutations to false,
      * if a sentence has two characters then it turns the associated boolean
-     * values
-     * of the impossible half of the permutations to false. Then for each
+     * values of the impossible half of the permutations to false. Then for each
      * true value it prints the permutation and the correctly punctuated string.
      *
      * @param args the string of characters to find valid sentences in
@@ -335,7 +355,6 @@ public class Design
         {
             setAllToTrue();
             String string = characterList.toString();
-
             filterByPermutation(string);
 
             if (string.contains("V, S, ."))
