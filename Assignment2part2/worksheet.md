@@ -10,16 +10,20 @@
 
 TODO define your target audience
 
-This worksheet is aimed at someone who knows basic java. They need to know about arraylists
-and hashmaps. 
+This worksheet is aimed at someone who knows basic java. The reader needs to know about arraylists
+and hashmaps. The reader should be a beginner in the Java programming language. 
 
 # Prerequisite knowledge #
 
 TODO outline what the target audience needs to know before starting.
 
+This worksheet requires knowledge on arraylists and hashmaps. 
+
 # Learning outcomes #
 
 TODO outline what the target audience is expected to learn.
+
+The reader will hopefully learn how to use enums to simplify a task in java.
 
 # Introduction #
 
