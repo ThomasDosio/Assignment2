@@ -337,21 +337,13 @@ public class Design
     }
 
     /**
-     * The main method of this class makes a list of all potentially valid
-     * strings. For each string if a sentence has three characters it
-     * turns the associated boolean values of the other permutations to false,
-     * if a sentence has two characters then it turns the associated boolean
-     * values of the impossible half of the permutations to false. Then for each
-     * true value it prints the permutation and the correctly punctuated string.
-     *
-     * @param args the string of characters to find valid sentences in
+     * Prints the valid sentences for each valid order
+     * @param validStrings the punctuated string that gets checked for each
+     *                     order
      */
-    public static void main(String[] args)
+    private static void printTrue(ArrayList<ArrayList<Character>> validStrings)
     {
-        ArrayList<ArrayList<Character>> allValidStrings =
-                giveValidStrings(args[0].toUpperCase());
-
-        for (ArrayList<Character> characterList : allValidStrings)
+        for (ArrayList<Character> characterList : validStrings)
         {
             setAllToTrue();
             String string = characterList.toString();
@@ -375,5 +367,23 @@ public class Design
                 }
             }
         }
+    }
+
+    /**
+     * The main method of this class makes a list of all potentially valid
+     * strings. For each string if a sentence has three characters it
+     * turns the associated boolean values of the other permutations to false,
+     * if a sentence has two characters then it turns the associated boolean
+     * values of the impossible half of the permutations to false. Then for each
+     * true value it prints the permutation and the correctly punctuated string.
+     *
+     * @param args the string of characters to find valid sentences in
+     */
+    public static void main(String[] args)
+    {
+        ArrayList<ArrayList<Character>> allValidStrings =
+                giveValidStrings(args[0].toUpperCase());
+
+        printTrue(allValidStrings);
     }
 }
