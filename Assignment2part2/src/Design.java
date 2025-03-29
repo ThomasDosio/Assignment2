@@ -149,14 +149,10 @@ public class Design
 
         boolean valid1WordSentence = characters.get(startIndex) == 'V';
 
-        boolean invalidSentence = !valid1WordSentence && !valid2WordSentence &&
-                !valid3WordSentence;
-
         ArrayList<Boolean> validSentences = new ArrayList<>();
         validSentences.add(valid1WordSentence);
         validSentences.add(valid2WordSentence);
         validSentences.add(valid3WordSentence);
-        validSentences.add(invalidSentence);
 
         return validSentences;
     }
@@ -197,8 +193,6 @@ public class Design
     {
         for (int k = 0; k < possibleStrings.size(); k++)
         {
-
-
             ArrayList<Character> possibleString = possibleStrings.get(k);
 
             int startIndex = startIndex(possibleString);
@@ -230,7 +224,6 @@ public class Design
      */
     private static ArrayList<ArrayList<Character>> giveValidStrings(String str)
     {
-        //
         ArrayList<ArrayList<Character>> possibleStrings = new ArrayList<>();
         ArrayList<ArrayList<Character>> allValidStrings = new ArrayList<>();
         ArrayList<Character> baseString = makeArrayList(str);
