@@ -227,6 +227,7 @@ public class Design
         ArrayList<ArrayList<Character>> possibleStrings = new ArrayList<>();
         ArrayList<ArrayList<Character>> allValidStrings = new ArrayList<>();
         ArrayList<Character> baseString = makeArrayList(str);
+
         possibleStrings.add(baseString);
 
         givePossibleStrings(possibleStrings);
@@ -340,6 +341,7 @@ public class Design
         {
             setAllToTrue();
             String string = characterList.toString();
+
             filterByPermutation(string);
 
             if (string.contains("V, S, ."))

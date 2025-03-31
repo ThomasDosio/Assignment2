@@ -54,21 +54,139 @@ right order or just a verb and a subject in the right order or just a verb.
 The output is the input string, correctly punctuated and preceded by the 
 right word order for all the valid orders.
 
+# The Structure #
+
+As shown in figure 1, the main method of this class calls two functions: one 
+that gives all the valid strings of sentences and the other that for 
+each string, prints the expected output, if it's true that the sentences in 
+the string fulfill the sentence conditions. This is representative of the 
+overall design structure. This challenge has two main issues: how to split 
+the words into sentences and how to check if the sentences work for each 
+permutation. Therefore, our design also has two parts to it, an algorithm 
+for each problem we are facing. 
+
 # The Splitting Algorithm #
 
+First, we will explain the algorithm for splitting the string of words into 
+lists of valid sentences. Our first issue is that we would like to add '.'s 
+at the end of our sentence or rather we want to be able to add a character to 
+the string at a given index. To do this we will convert our string into an 
+arraylist of characters. This allows us to take advantage of arraylist's add 
+method at a given index. 
 
+Hence, the first method we will call is makeArrayList. This method 
+transforms the input string into an array or characters and then iterates 
+over the array adding each character to an arraylist which we call 
+characterList.
+
+Now that we can add punctuation wherever we would like, we will move on to 
+the main algorithm for this part, which is mainly contained in the method 
+givePossibleStrings. As shown in figure 2 this method loops through the 
+possible strings. This is an arraylist that we add elements to as we go work 
+through the algorithm. The initial possible string is just the input string. 
+
+As figure 2 shows clearly, the algorithm first of all finds the starting index. 
+to do this we call another method that returns 0 if the string has no '.' or 
+the index after the index of the last '.' otherwise. This method ensures 
+that we don't punctuate a sentence that we have already finished. 
+
+Next, the algorithm skips the strings that end in a dot. This is because 
+these are already finished options that we don't want to change anymore. The 
+algorithm will end when we have worked through all the strings and skipped 
+the last ones which will have a dot at the end.
+
+If the last character isn't a dot then we check for each of the sentence 
+conditions for a 1, 2, and 3-word sentence if the conditions are true. The 
+sentence conditions are found by calling a method with that name, given a 
+starting index and the string we are working on. The conditions evaluate to 
+true if there are enough characters left in the string to form a valid 
+sentence of that length. A valid 1-word sentence has just a V, a valid 
+2-word sentence has an S and a V and a valid 3-word sentence has all three 
+letters V, S and O. For each string we are working on the conditions for 
+each sentence length are checked separately by iterating through an arraylist 
+that they are stored in. 
+
+If a condition is true then we can form a sentence of that length after our 
+index. Therefore, the next thing we want to do it make a copy of the string 
+we are working on, add a '.' at the correct index. This is what the addDot 
+method does. We then add this new possible string with one '.' more than 
+before to the list of possible strings we are working through.
+
+This means that if we have punctuated the last sentence, then the fully 
+punctuated string will be skipped by the algorithm, and otherwise we will 
+work on this string we added to punctuate the next sentence. Note that each 
+string when the algorithm is applied to it can add 0-3 possible strings to 
+the list we are working through. This is because there are 0-3 ways of 
+making a sentence (it could be impossible (0), just a 1-word sentence (1), a 
+1-word and a 2-word sentence (2), or all three lengths of sentences (3)). 
+
+In figure 3, there is a worked example of how this algorithm works through 
+the string VSOVS with the V shown as a blue triangle, the S as a yellow square 
+and the O as an orange circle. It shows how the algorithm adds strings to 
+the list of possible strings as it operates. 
+
+Lastly, we want to filter the list of all possible strings that we've been 
+working through, down to just the strings that are fully punctuated. To do 
+this we will call the method allValidStrings that takes the possible strings 
+and adds the ones that end in a '.' to the list of valid strings that will 
+be returned to the main method. 
 
 # What are Enums and how are we using them #
 
-
+Enums are a data structure in java that are also a special type of class. 
+They are used to hold a small number of constant values and iterate through 
+them. This makes them much safer to use for checking if an input has typos or 
+errors. It allows for compile time checking and evaluating. In this program we 
+create an enum called permutation that contains the 6 valid permutations: 
+OVS, OSV, SOV, SVO, VSO, VOS. We can also give the permutations parameters. 
+We use this to give them two parameters. The first is a constant string that 
+corresponds to how the permutations would look when the sentence was 
+converted into an arraylist of characters. This allows us to do string 
+comparison quickly. The second parameter we associate with a setter as well 
+as just a getter and a constructor like the string. This parameter is a 
+boolean value that starts at true and will change as we work through the 
+checking algorithm.
 
 # The Checking Algorithm #
 
+The second main part of our program is the checking algorithm, that checks 
+for all the valid strings if that combination of sentences is valid for each 
+permutation and if it is, it prints the output. 
+This algorithm works through each string of valid sentences separately. 
+
+The first step this algorithm takes is turn all the truth values of the 
+permutations to true. These will then be set to false if there is a 
+conditions that prevents that permutation from being a valid one. 
+
+Next we will convert the string of sentences we are working on from an 
+arraylist of characters back to string. This allows us to check if the string 
+at any point contains a given expression by using the string method contains. 
+
+Now we will filter out the impossible truth values. If a string contains a 
+sentence of three characters at any point then the other permutations must 
+be false. For example, we can't have the permutation VSO if one sentence is 
+OSV.  The method that filters with three letter permutations is 
+filterByPermutation. This sets the truth values of the other permutations to 
+false, for each permutation sentence it can find in the string. It does this by 
+calling another method setFalseOthers which is self-explanatory. 
+
+However, we also know that if we have a sentence with just a V and an S 
+these also have to be in the right order. Therefore, we can turn half the 
+values of the permutations to false for each 2-letter sentence. 
+
+Lastly, if we have any permutations that are still true we want to print the 
+string we are working on with the corresponding permutation. This is what 
+the last part of the printTrue method does. It calls the prettyPrint method 
+that produces the output in the format we require. 
 
 
 # Conclusion #
 
-
+Hopefully, by reading through this worksheet the reader will have a better 
+idea of what enums are and how they can be implemented. We also hope that 
+the reader enjoyed finding a solution to a complex problem such as this one 
+and understood our design idea and how by dividing and conquering we broke 
+the task down into small steps that were easier to implement.
 
 
 
