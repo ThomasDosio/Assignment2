@@ -29,10 +29,13 @@ why they can be more useful than other data structures.
 
 # Introduction #
 
-This worksheet will work through an example problem: The Absent-Minded 
+This worksheet will work through the following problem: The Absent-Minded 
 Linguist, from the code golf website. In addition to explaining the 
 algorithms used to solve the problem effectively, it will also explain enums 
-to a beginner audience and how to use them in this example. 
+to a beginner audience and how to use them in this example. The explanation 
+of the solution will be split into three parts: two smaller algorithms and an 
+enum. The attached diagram will use a flowchart to explain the more 
+complicated sub-algorithm and work through an example input. 
 
 # Accessibility text description of diagram #
 

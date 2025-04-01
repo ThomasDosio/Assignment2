@@ -45,17 +45,23 @@ team.
 
 # 3: You be the judge #
 
-When completing this assignment I should have spent more time choosing my 
-challenge so that I chose one that was interesting but not too long. I spent 
-excessive amounts of time trying to debug a bad algorithm that I didn't end 
-up using and should instead have thought of more ways of solving the problem 
-beforehand. That being said however, designing my final solution fully 
-before coding was very helpful, as it let me work from the higher levels to the
-lower levels of my solution when coding and solve my problems quickly. It also 
-made debugging much easier. Starting early was also useful as it let me have 
-more time to flesh out my design and then change it. Another step I took 
-that was the right thing to do was to chat about the problem with a friend. 
-This helped me to understand issues with my code, come up with new 
+When completing this assignment there were various parts that I had to do. I 
+feel like going through every challenge and choosing whether it was 
+interesting, useful and coming up with a design was less useful than I 
+thought it would be. This is because I found a challenge I really liked 
+early on and I didn't change my mind by reading the later ones. Making more 
+than one design for my chosen challenge on the other hand was extremely 
+useful. I ended up coding three different designs for this challenge and 
+choosing the one that was the easiest to explain, make modular and debug. 
+However, having the other designs helped me to come up with this design and 
+was a great learning experience.
+Drawing a diagram was useful when developing the ideas behind my design and 
+so was a useful step to take however to make it useful for the worksheet I 
+had to add other parts which was quite time-consuming. Another step that I 
+hadn't done before was designing for accessibility. This was a really useufl 
+thing to learn in the long term.
+Another step I took that was the right thing to do was to chat about the problem
+with a friend. This helped me to understand issues with my code, come up with new 
 approaches and see a new take on the problem. 
 I feel that writing a first draft of the worksheet wasn't as useful as I 
 would have liked. This is because I changed my design to implement enums for 
@@ -65,9 +71,11 @@ decided to write about in more detail.
 I hope that if I had a selection of worksheets by students mine would stand 
 out for it's challenging problem, interesting solution and good explanations.
 I would hope that students learning java would read the problem description 
-and have their curiosity peaked on how to solve it. Alternatively, a student 
+and have their curiosity piqued on how to solve it. Alternatively, a student 
 who wanted to learn more of java's features would also hopefully be drawn 
-more to my worksheet as they would learn more from it.
+more to my worksheet as they would learn more from it. If all else were to 
+fail I hope that a prospective reader would see the colourful shapes in my 
+diagram and wonder what it was all about. 
 
 <STYLE>
 * { /* Don't leave any empty lines or IntelliJ might not render correctly */
