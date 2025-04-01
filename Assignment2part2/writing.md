@@ -18,7 +18,7 @@ pieces of advice on this project:
 
 1. Make two separate algorithms; one for splitting the string into possible 
    sentences and one for selecting the ones that work of these. Make a 
-   greedy program.
+   greedy program. 
 2. Start by making it modular in design. If you design one big algorithm 
    first it will become hard to split up into smaller methods.
 3. When planning and designing, keep in mind that you'll have to draw a 

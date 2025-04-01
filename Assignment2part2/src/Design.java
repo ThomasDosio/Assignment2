@@ -132,7 +132,7 @@ public class Design
      * @param characters      the list of characters that we check
      * @return the four sets of conditions
      */
-    private static ArrayList<Boolean> SentenceConditions(int startIndex,
+    private static ArrayList<Boolean> sentenceConditions(int startIndex,
                                                          ArrayList<Character>
                                                                  characters)
     {
@@ -204,7 +204,7 @@ public class Design
 
             for (int j = 0; j < MAX_NUMBER_OF_WORDS_IN_A_SENTENCE; j++)
             {
-                if (SentenceConditions(startIndex, possibleString).get(j))
+                if (sentenceConditions(startIndex, possibleString).get(j))
                 {
                     possibleStrings.add(
                             addDot(startIndex, possibleString, j + 1));
