@@ -216,6 +216,23 @@ for all the valid strings if that combination of sentences is valid for each
 permutation and if it is, it prints the output. 
 This algorithm works through each string of valid sentences separately. 
 
+The algorithm is summarised with the following pseudocode:
+
+for each string of sentences:
+    set all the permutation truth values to true
+    convert string of sentences from arraylist ot string
+    check if the sentence has a 3-letter sentence:
+        if so then for each one of these turn all the permutations except 
+        that one to false
+    check if the sentence has a 2-letter sentence:
+        if so then for each one turn three of the permutations truth 
+        values to false(the ones with the opposite v s order)
+    for each permutation:
+        check if the truth value for that permutation is true:
+            if so print the permutation + : + the string we are working on
+End
+
+
 The first step this algorithm takes is turn all the truth values of the 
 permutations to true. These will then be set to false if there is a 
 conditions that prevents that permutation from being a valid one. 
