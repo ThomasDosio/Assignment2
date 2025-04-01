@@ -36,60 +36,58 @@ to a beginner audience and how to use them in this example.
 
 # Accessibility text description of diagram #
 
-The diagram has three figures. Figure 1 is a flowchart explaining the method 
-givePossibleStrings. This is shown in a box with an arrow leading to a box 
-saying "loops through possibleStrings". From this box there are two arrows 
-leaving, corresponding to the three things this is doing. The first arrow 
-leads to a box saying "Get the possible string" which in turn leads to "Find 
-the startIndex of the current possibleString". The next arrow leads to a 
-loop of three boxes which say respectively: check if the last character is a 
-dot, get the last character of the current possibleString and then if the 
-last charcter is a dot skip this string. This box is then connected back to 
-the 'loops through possible strings' box. There's an arrow leading from the 
-box that checks if the last character is a dot and links it to a series of 
+![The diagram has three figures. Figure 1 is a flowchart explaining the method
+givePossibleStrings. This is shown in a box with an arrow leading to a box
+saying "loops through possibleStrings". From this box there are two arrows
+leaving, corresponding to the three things this is doing. The first arrow
+leads to a box saying "Get the possible string" which in turn leads to "Find
+the startIndex of the current possibleString". The next arrow leads to a
+loop of three boxes which say respectively: check if the last character is a
+dot, get the last character of the current possibleString and then if the
+last charcter is a dot skip this string. This box is then connected back to
+the 'loops through possible strings' box. There's an arrow leading from the
+box that checks if the last character is a dot and links it to a series of
 connected boxes in the case that it isn't a dot. The read in order: loop
 through sentence conditions, get the sentence conditions for the start index,
-check if the current sentence condition is true, if so add a new possible 
-string, create a new possible string by adding a dot at the specified index, 
-and then finally: add the new possible string to the list of possbile 
-strings. This box is then linked back to the 'loops through possible 
-strings' box. Finally, in the bottom right corner there is a red box that 
+check if the current sentence condition is true, if so add a new possible
+string, create a new possible string by adding a dot at the specified index,
+and then finally: add the new possible string to the list of possbile
+strings. This box is then linked back to the 'loops through possible
+strings' box. Finally, in the bottom right corner there is a red box that
 reads end givePossibleStrings.
-
-Figure 2 has a legend with the letters V S O V S written underneath 
-respectively a blue triangle, a yellow square, an orange circle, a blue 
-triangle and a yellow square. The rest of the diagram is a series of rows 
-with arrows linking them. Each row contains the list of possible strings 
-with a line underlying the one that is being worked on to get to the next 
-step. Initially there is just the list of those five shapes with no dots. 
-Then there is an arrow leading down to the next row where the index is now 
-on the second element of the list. the list now has 4 elements: the original 
-string, followed by the list of the five shapes with a dot after the first 
-shape (a triangle), followed by the list of the shapes with a dot after two 
-shapes instead, and then followed by the same list but with the dot after 
-three shapes instead. There is then an arrow leading down to the next row 
-which is the same as this one except it has an extra element at the end. The 
-new element has two dots: one after the triangle and then one after three 
-distinct shapes. The next row has another new element which has two dots, 
-one after the frst two shapes and then one after the last three. The row 
-under that has 2 new elements: one with a dot after three shapes and then 
-after one more shape, and the other with a dot after three shapes and then 
-after the remaining two shapes. The next row is the same as the previous 
-one showing how the program has nothing to add after that. 
-
-Figure 3 has the same legend as figure 2 with the string VSOVS associated to 
-5 shapes, one for each letter. The figure is then split into two halfs: one 
-for each of the two strings VSO . VS. and  VS . OVS. Then each sentence of 
-shapes is associated with an arrow to a list of the six permutations of the 
-triangle, the square and the circle. The four columns corresponding to VSO, 
-VS, VS, OVS have green ticks and red crosses. For the 3-letter sentences 
-the only permutations with green crosses are the ones corresponding to that 
-sentence and for the 2-letter ones, the ones with different orders of 
-triangles and squares have red crosses. The diagram then summarises that the 
-only permutations that remain true for the first valid string of shapes is 
-triangle, square, circle and for the second one is circle, triangle, square. 
-The last part of the figure is the output which is the permutations followed 
-by a colon and then the punctuated string of shapes. 
+Figure 2 has a legend with the letters V S O V S written underneath
+respectively a blue triangle, a yellow square, an orange circle, a blue
+triangle and a yellow square. The rest of the diagram is a series of rows
+with arrows linking them. Each row contains the list of possible strings
+with a line underlying the one that is being worked on to get to the next
+step. Initially there is just the list of those five shapes with no dots.
+Then there is an arrow leading down to the next row where the index is now
+on the second element of the list. the list now has 4 elements: the original
+string, followed by the list of the five shapes with a dot after the first
+shape (a triangle), followed by the list of the shapes with a dot after two
+shapes instead, and then followed by the same list but with the dot after
+three shapes instead. There is then an arrow leading down to the next row
+which is the same as this one except it has an extra element at the end. The
+new element has two dots: one after the triangle and then one after three
+distinct shapes. The next row has another new element which has two dots,
+one after the frst two shapes and then one after the last three. The row
+under that has 2 new elements: one with a dot after three shapes and then
+after one more shape, and the other with a dot after three shapes and then
+after the remaining two shapes. The next row is the same as the previous
+one showing how the program has nothing to add after that.
+Figure 3 has the same legend as figure 2 with the string VSOVS associated to
+5 shapes, one for each letter. The figure is then split into two halfs: one
+for each of the two strings VSO . VS. and  VS . OVS. Then each sentence of
+shapes is associated with an arrow to a list of the six permutations of the
+triangle, the square and the circle. The four columns corresponding to VSO,
+VS, VS, OVS have green ticks and red crosses. For the 3-letter sentences
+the only permutations with green crosses are the ones corresponding to that
+sentence and for the 2-letter ones, the ones with different orders of
+triangles and squares have red crosses. The diagram then summarises that the
+only permutations that remain true for the first valid string of shapes is
+triangle, square, circle and for the second one is circle, triangle, square.
+The last part of the figure is the output which is the permutations followed
+by a colon and then the punctuated string of shapes.](diagram.jpg)
 
 # Contents #
 
