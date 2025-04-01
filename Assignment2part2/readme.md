@@ -162,8 +162,8 @@ is no word limit, avoid answers that are excessive, extraneous, or repetitive.
 Answers may refer to text in your other answers to avoid repetition.
 
 You MUST use technical terms appropriately and correctly. You are not explicitly
-marked on these matters but you should check spelling, 
-orthography, and punctuation.
+marked on these matters but you should check spelling, orthography, and 
+punctuation.
 
 [Back to contents](#contents- "Return to the table of contents")
 

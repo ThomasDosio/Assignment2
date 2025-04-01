@@ -7,8 +7,14 @@
 - Date: 2025-03-26
 
 I used the website https://codetoflow.com/ to help draw the flowchart for my 
-code. 
+code as part of my diagram.
+I used the procreate software to draw the rest of my diagram. 
 
+I would also like to acknowledge some people who helped me:
+Abdulrahman Hesham Albinali, another student on this course, who by chatting 
+about the problems helped me come up with my winning design and debug it; and
+Alexandra Hedwig Nelischer, my girlfriend, for letting me know if my design was
+suitable for beginners and reminding me how to spell.
 
 <STYLE>
 * { /* Don't leave any empty lines or IntelliJ might not render correctly */

@@ -6,9 +6,7 @@
 
 # The Absent-Minded Linguist #
 
-# Target audience # 
-
-TODO define your target audience
+# Target audience #
 
 This worksheet is aimed at someone who knows basic java. The reader needs to
 know about arraylists and loops. The reader should be a beginner in the Java
@@ -17,16 +15,12 @@ in java: enums, and how to use them effectively.
 
 # Prerequisite knowledge #
 
-TODO outline what the target audience needs to know before starting.
-
 This worksheet requires basic java knowledge such as how loops work, how to
 manipulate strings and how to effectively use arraylists. Ideally, the 
 reader should also know about private classes, constructors, getters and 
 setters.
 
 # Learning outcomes #
-
-TODO outline what the target audience is expected to learn.
 
 The reader will hopefully learn how to use enums to simplify a task in java and
 solidify their knowledge of arraylists and how to use arraylists of arraylists
@@ -39,6 +33,75 @@ This worksheet will work through an example problem: The Absent-Minded
 Linguist, from the code golf website. In addition to explaining the 
 algorithms used to solve the problem effectively, it will also explain enums 
 to a beginner audience and how to use them in this example. 
+
+# Accessibility text description of diagram #
+
+The diagram has three figures. Figure 1 is a flowchart explaining the method 
+givePossibleStrings. This is shown in a box with an arrow leading to a box 
+saying "loops through possibleStrings". From this box there are two arrows 
+leaving, corresponding to the three things this is doing. The first arrow 
+leads to a box saying "Get the possible string" which in turn leads to "Find 
+the startIndex of the current possibleString". The next arrow leads to a 
+loop of three boxes which say respectively: check if the last character is a 
+dot, get the last character of the current possibleString and then if the 
+last charcter is a dot skip this string. This box is then connected back to 
+the 'loops through possible strings' box. There's an arrow leading from the 
+box that checks if the last character is a dot and links it to a series of 
+connected boxes in the case that it isn't a dot. The read in order: loop
+through sentence conditions, get the sentence conditions for the start index,
+check if the current sentence condition is true, if so add a new possible 
+string, create a new possible string by adding a dot at the specified index, 
+and then finally: add the new possible string to the list of possbile 
+strings. This box is then linked back to the 'loops through possible 
+strings' box. Finally, in the bottom right corner there is a red box that 
+reads end givePossibleStrings.
+
+Figure 2 has a legend with the letters V S O V S written underneath 
+respectively a blue triangle, a yellow square, an orange circle, a blue 
+triangle and a yellow square. The rest of the diagram is a series of rows 
+with arrows linking them. Each row contains the list of possible strings 
+with a line underlying the one that is being worked on to get to the next 
+step. Initially there is just the list of those five shapes with no dots. 
+Then there is an arrow leading down to the next row where the index is now 
+on the second element of the list. the list now has 4 elements: the original 
+string, followed by the list of the five shapes with a dot after the first 
+shape (a triangle), followed by the list of the shapes with a dot after two 
+shapes instead, and then followed by the same list but with the dot after 
+three shapes instead. There is then an arrow leading down to the next row 
+which is the same as this one except it has an extra element at the end. The 
+new element has two dots: one after the triangle and then one after three 
+distinct shapes. The next row has another new element which has two dots, 
+one after the frst two shapes and then one after the last three. The row 
+under that has 2 new elements: one with a dot after three shapes and then 
+after one more shape, and the other with a dot after three shapes and then 
+after the remaining two shapes. The next row is the same as the previous 
+one showing how the program has nothing to add after that. 
+
+Figure 3 has the same legend as figure 2 with the string VSOVS associated to 
+5 shapes, one for each letter. The figure is then split into two halfs: one 
+for each of the two strings VSO . VS. and  VS . OVS. Then each sentence of 
+shapes is associated with an arrow to a list of the six permutations of the 
+triangle, the square and the circle. The four columns corresponding to VSO, 
+VS, VS, OVS have green ticks and red crosses. For the 3-letter sentences 
+the only permutations with green crosses are the ones corresponding to that 
+sentence and for the 2-letter ones, the ones with different orders of 
+triangles and squares have red crosses. The diagram then summarises that the 
+only permutations that remain true for the first valid string of shapes is 
+triangle, square, circle and for the second one is circle, triangle, square. 
+The last part of the figure is the output which is the permutations followed 
+by a colon and then the punctuated string of shapes. 
+
+# Contents #
+
+* [The challenge](#The-Challenge-)
+* [The Structure](#The-Structure-)
+* [The Splitting Algorithm](#The-Splitting-Algorithm-)
+* [What are Enums and how are we using them](#What-are-enums-and-how-are-we-using-them-)
+* [The Checking Algorithm](#The-Checking-Algorithm-)
+* [Conclusion](#Conclusion-)
+* [Original challenge question from CodeGolf](#Original-challenge-question-from-CodeGolf-)
+
+
 
 # The challenge #
 
@@ -56,14 +119,13 @@ right word order for all the valid orders.
 
 # The Structure #
 
-As shown in figure 1, the main method of this class calls two functions: one 
-that gives all the valid strings of sentences and the other that for 
-each string, prints the expected output, if it's true that the sentences in 
-the string fulfill the sentence conditions. This is representative of the 
-overall design structure. This challenge has two main issues: how to split 
-the words into sentences and how to check if the sentences work for each 
-permutation. Therefore, our design also has two parts to it, an algorithm 
-for each problem we are facing. 
+The main method of this class calls two functions: one that gives all the valid 
+strings of sentences and the other that for each string, prints the expected 
+output, if it's true that the sentences in the string fulfill the sentence 
+conditions. This is representative of the overall design structure. This 
+challenge has two main issues: how to split the words into sentences and how to 
+check if the sentences work for each permutation. Therefore, our design also has
+two parts to it, an algorithm for each problem we are facing. 
 
 # The Splitting Algorithm #
 
@@ -81,11 +143,11 @@ characterList.
 
 Now that we can add punctuation wherever we would like, we will move on to 
 the main algorithm for this part, which is mainly contained in the method 
-givePossibleStrings. As shown in figure 2 this method loops through the 
+givePossibleStrings. As shown in figure 1 this method loops through the 
 possible strings. This is an arraylist that we add elements to as we go work 
 through the algorithm. The initial possible string is just the input string. 
 
-As figure 2 shows clearly, the algorithm first of all finds the starting index. 
+As figure 1 shows clearly, the algorithm first of all finds the starting index. 
 to do this we call another method that returns 0 if the string has no '.' or 
 the index after the index of the last '.' otherwise. This method ensures 
 that we don't punctuate a sentence that we have already finished. 
@@ -120,7 +182,7 @@ the list we are working through. This is because there are 0-3 ways of
 making a sentence (it could be impossible (0), just a 1-word sentence (1), a 
 1-word and a 2-word sentence (2), or all three lengths of sentences (3)). 
 
-In figure 3, there is a worked example of how this algorithm works through 
+In figure 2, there is a worked example of how this algorithm works through 
 the string VSOVS with the V shown as a blue triangle, the S as a yellow square 
 and the O as an orange circle. It shows how the algorithm adds strings to 
 the list of possible strings as it operates. 
@@ -172,12 +234,21 @@ calling another method setFalseOthers which is self-explanatory.
 
 However, we also know that if we have a sentence with just a V and an S 
 these also have to be in the right order. Therefore, we can turn half the 
-values of the permutations to false for each 2-letter sentence. 
+values of the permutations to false for each 2-letter sentence.
 
 Lastly, if we have any permutations that are still true we want to print the 
 string we are working on with the corresponding permutation. This is what 
 the last part of the printTrue method does. It calls the prettyPrint method 
 that produces the output in the format we require. 
+
+In figure 3, there is a worked example of how this algorithm works through
+the possible valid strings of sentences for VSOVS with the V shown as a blue
+triangle, the S as a yellow square and the O as an orange circle. It shows how
+the algorithm changes the truth values of the permutations for each sentence.
+The permutations associated with green ticks are true and the ones
+associated with red crosses are false. The figure shows the two resulting
+true permutations for each way of splitting the string.
+Lastly figure 3 shows the expected output for that string.
 
 
 # Conclusion #
@@ -301,8 +372,6 @@ OVS:VS.OVS.VS.OVS.V.VS.
   font-size:   1.1rem;
   /*font-size:   1.2rem;*/
   /* Zenburn dark theme */
-  background-color: #2A252A;
-  color:            #D5DAD5;
   /* One Dark theme */
   /*background-color: #282C34;
   color:            #ABB2BF;*/
@@ -313,11 +382,9 @@ OVS:VS.OVS.VS.OVS.V.VS.
   /*background-color: black;
   color: white;*/
   /* black on white */
-  /*background-color: white;
-  color: black;*/
   /* nearly black on bright yellow */
-  /*background-color: #FFFFAA;
-  color:            #080808;*/
+  background-color: #FFFFAA;
+  color:            #080808;
   /* black on bright blue */  
   /*background-color: #99CCFF;
   color:            black;*/
