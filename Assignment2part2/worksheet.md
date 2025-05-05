@@ -6,7 +6,7 @@
 
 # TODO Rename this heading to identify the challenge #
 
-# Target audience #
+# Target audience # 
 
 TODO define your target audience
 
